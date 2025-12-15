@@ -21,7 +21,7 @@
 			</div>
 		</div>
 
-		<div class="px-5 mb-4 elementor-element elementor-element-47bc475 e-flex e-con-boxed e-con e-parent d-column align-items-start justify-content-start" data-id="47bc475"
+		<div class="px-2 mb-4 px-md-5 elementor-element elementor-element-47bc475 e-flex e-con-boxed e-con e-parent d-column align-items-start justify-content-start" data-id="47bc475"
 			data-element_type="container">
 			<div class="e-con-inner" style="display: fle;">
 				{{-- <div class="border elementor-element elementor-element-343896c e-con-full e-flex e-con e-child "

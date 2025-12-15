@@ -151,20 +151,20 @@
 
                                             <div id="ekit-megamenu-cleasy-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
                                                 <ul id="menu-cleasy-menu" class="text-right elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon">
-                                                    <li id="menu-item-558" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-558 nav-item elementskit-mobile-builder-content active" data-vertical-menu=750px>
-                                                        <a href="/" class="ekit-menu-nav-link active">Accueil</a>
+                                                    <li id="menu-item-558" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-558 nav-item elementskit-mobile-builder-content {{ Route::is('home') ? 'current-menu-item': '' }}" data-vertical-menu=750px>
+                                                        <a href="/" class="ekit-menu-nav-link">Accueil</a>
                                                     </li>
-                                                    <li id="menu-item-559" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-559 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu=750px>
+                                                    <li id="menu-item-559" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-559 nav-item elementskit-dropdown-has relative_position {{ Request::is('/#services') ? 'current-menu-item': '' }} elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu=750px>
                                                         <a href="/#services" class="ekit-menu-nav-link ekit-menu-dropdown-toggle">
                                                             Services
                                                         </a>
                                                     </li>
-                                                    <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu=750px>
+                                                    <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572 nav-item elementskit-dropdown-has {{ Route::is('teams') ? 'current-menu-item': '' }} relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu=750px>
                                                         <a href="{{ route('teams') }}" class="ekit-menu-nav-link ekit-menu-dropdown-toggle">
                                                             Nos agents
                                                         </a>
                                                     </li>
-                                                    <li id="menu-item-582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-582 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px>
+                                                    <li id="menu-item-582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-582 nav-item elementskit-mobile-builder-content {{ Route::is('contact') ? 'current-menu-item': '' }}" data-vertical-menu=750px>
                                                         <a href="{{ route('contact') }}" class="ekit-menu-nav-link">Contact</a>
                                                     </li>
                                                 </ul>
@@ -345,7 +345,7 @@
 
                                                 <h6 class="elementor-icon-box-title">
                                                     <span>
-                                                        info@powercare-drc.com </span>
+                                                        contact@powercare-drc.com </span>
                                                 </h6>
 
 
