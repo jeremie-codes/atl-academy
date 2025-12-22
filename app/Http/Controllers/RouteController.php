@@ -3,26 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agent;
-use App\Models\Contact;
-use App\Models\Pricing;
-use App\Models\Service;
 use Illuminate\Http\Request;
 
 class RouteController
 {
     public function index()
     {
-        $services = Service::paginate(8);
-        $pricings = Pricing::paginate(3);
-
-        return view('index', compact('services', 'pricings'));
+        return view('index');
     }
 
-    public function team()
+    public function about()
     {
-        $agents = Agent::with('user', 'category', 'service')->paginate(6);
+        return view('about');
+    }
 
-        return view('team', compact('agents'));
+    public function formation()
+    {
+        return view('formation');
+    }
+
+    public function galerie()
+    {
+        return view('galerie');
+    }
+
+    public function contacts()
+    {
+        return view('contact');
     }
 
     public function contact(Request $request)
