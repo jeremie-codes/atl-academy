@@ -61,7 +61,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             //->breadcrumbs(false)
-            ->brandLogo(asset('assets/images/icon.png'))
+            ->brandLogo(asset('assets/images/icon-dark.png'))
             ->darkModeBrandLogo(asset('assets/images/icon-2.png'))
             ->brandLogoHeight('60px')
             ->favicon(asset('icons/favicon.png'))

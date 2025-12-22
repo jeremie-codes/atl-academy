@@ -91,7 +91,7 @@
 				<div class="row d-flex align-items-start align-items-center px-3 px-md-0">
 					<div class="col-md-4 d-flex mb-2 mb-md-0">
 						<a class="navbar-brand d-flex align-items-center" href="/">
-							<img src="{{ asset('assets/images/icon.png') }}" alt="logo" width="165">
+							<img src="{{ asset('assets/images/icon-dark.png') }}" alt="logo" width="165">
 						</a>
 					</div>
 
