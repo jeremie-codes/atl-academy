@@ -61,7 +61,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             //->breadcrumbs(false)
-            ->brandLogo(asset('icons/logo.png'))
+            ->brandLogo(asset('assets/images/icon.png'))
+            ->darkModeBrandLogo(asset('assets/images/icon-2.png'))
             ->brandLogoHeight('60px')
             ->favicon(asset('icons/favicon.png'))
             ->discoverClusters(in: app_path('Filament/Clusters'), for: 'App\\Filament\\Clusters');
