@@ -24,10 +24,6 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
-        'phone',
-        'role',
-        'avatar',
-        'adresse',
         'is_active'
     ];
 
@@ -54,20 +50,11 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
-    public function agent()
-    {
-        return $this->hasOne(Agent::class);
-    }
-
-    public function client()
-    {
-        return $this->hasOne(Client::class);
-    }
-
     public function getAvatar()
     {
         return  $this->avatar ? 'storage/' . $this->avatar : "images/avatar.jpg";
     }
+
 
     public function canAccessPanel(Panel $panel): bool
     {

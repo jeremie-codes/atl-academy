@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-    Contacts
+    Formation
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
-            <div class="col-md-9 ftco-animate pb-5">
+            <div class="pb-5 col-md-9 ftco-animate">
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil <i class="fa fa-chevron-right"></i></a></span>
                     <span>Formations <i class="fa fa-chevron-right"></i></span></p>
                 <h1 class="mb-3 bread">Formations</h1>
@@ -20,8 +20,8 @@
 
 <section class="ftco-section">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 text-center heading-section ftco-animate">
+        <div class="pb-3 mb-5 row justify-content-center">
+            <div class="text-center col-md-7 heading-section ftco-animate">
                 <span class="subheading">ATLA – Africa Transport and Logistic Academy</span>
                 <h2 class="mb-4">Nos programmes de formation</h2>
             </div>
@@ -29,148 +29,72 @@
 
         <div class="row">
 
+            @forelse($formations as $formation)
             <div class="col-md-4">
                 <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-1.jpg') }});">
+                    <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ? $formation->image : 'assets/images/project-1.jpg') }});">
                     </a>
-                    <a href="#!">
+                    <a href="{{ route('formation.show', $formation->id) }}">
                         <div class="text">
                             <span class="subheading">Logistique</span>
                             <h3>Gestion logistique et supply chain</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation certifiante</p>
+                            <p><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
                         </div>
                     </a>
                 </div>
             </div>
+            @empty
+            <div class="mt-5 col-md-12 d-flex justify-content-center">
+                <div class="text-center col-md-12">
+                    <i class='bx bx-layers-down-right fa-3x'></i>
+                    <p>Aucune formation disponible.</p>
+                </div>
+            </div>
+            @endforelse
 
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-2.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Transport</span>
-                            <h3>Gestion du transport et de la distribution</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation professionnelle</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-3.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Entrepôt</span>
-                            <h3>Gestion des stocks et des entrepôts</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation pratique</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-4.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Douane</span>
-                            <h3>Transit et formalités douanières</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation spécialisée</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-5.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Management</span>
-                            <h3>Management des opérations logistiques</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation avancée</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-6.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Digital</span>
-                            <h3>Outils numériques et systèmes logistiques</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation moderne</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-1.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Logistique</span>
-                            <h3>Gestion logistique et supply chain</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation certifiante</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-2.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Transport</span>
-                            <h3>Gestion du transport et de la distribution</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation professionnelle</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="#!" class="img d-flex align-items-center" style="background-image: url({{ asset('assets/images/project-3.jpg') }});">
-                    </a>
-                    <a href="#!">
-                        <div class="text">
-                            <span class="subheading">Entrepôt</span>
-                            <h3>Gestion des stocks et des entrepôts</h3>
-                            <p><span class="fa fa-clock-o mr-1"></span> Formation pratique</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col text-center">
+        @if ($formations->hasPages())
+        <div class="mt-5 row">
+            <div class="text-center col">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
+
+                        {{-- Bouton précédent --}}
+                        <li class="{{ $formations->onFirstPage() ? 'disabled' : '' }}">
+                            @if ($formations->onFirstPage())
+                                <span>&lt;</span>
+                            @else
+                                <a href="{{ $formations->previousPageUrl() }}">&lt;</a>
+                            @endif
+                        </li>
+
+                        {{-- Pages --}}
+                        @foreach ($formations->links()->elements[0] ?? [] as $page => $url)
+                            <li class="{{ $page == $formations->currentPage() ? 'active' : '' }}">
+                                @if ($page == $formations->currentPage())
+                                    <span>{{ $page }}</span>
+                                @else
+                                    <a href="{{ $url }}">{{ $page }}</a>
+                                @endif
+                            </li>
+                        @endforeach
+
+                        {{-- Bouton suivant --}}
+                        <li class="{{ $formations->hasMorePages() ? '' : 'disabled' }}">
+                            @if ($formations->hasMorePages())
+                                <a href="{{ $formations->nextPageUrl() }}">&gt;</a>
+                            @else
+                                <span>&gt;</span>
+                            @endif
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </div>
+        @endif
+
     </div>
 </section>
 @endsection

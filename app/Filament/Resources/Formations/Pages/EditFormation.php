@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Filament\Resources\Formations\Pages;
+
+use App\Filament\Resources\Formations\FormationResource;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditFormation extends EditRecord
+{
+    protected static string $resource = FormationResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+}

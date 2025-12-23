@@ -2,37 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agent;
+use App\Models\Apropos;
+use App\Models\Contact;
+use App\Models\Formation;
+use App\Models\Galery;
+use App\Models\Partenaire;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 
 class RouteController
 {
     public function index()
     {
-        return view('index');
+        $formationAll =  Formation::all();
+        $formations =  Formation::limit(6)->orderBy('created_at', 'desc')->get();
+        $about = Apropos::first();
+        $testimonies = Testimony::all();
+        $parteners = Partenaire::all();
+
+        return view('index', compact('formations', 'about', 'testimonies', 'formationAll', 'parteners'));
     }
 
     public function about()
     {
-        return view('about');
+        $about = Apropos::first();
+        $parteners = Partenaire::all();
+
+        return view('about', compact('about', 'parteners'));
     }
 
-    public function formation()
+    public function formations()
     {
-        return view('formation');
+        $formations =  Formation::orderBy('created_at', 'desc')->paginate(9);
+        return view('formation', compact('formations'));
+    }
+    public function formationShow($id)
+    {
+        $formation = Formation::findOrFail($id);
+        return view('formation-show', compact('formation'));
     }
 
     public function galerie()
     {
-        return view('galerie');
+        $galeries =  Galery::paginate(9);
+        return view('galerie', compact('galeries'));
     }
 
     public function contacts()
     {
-        return view('contact');
+        $contacts =  Contact::all();
+        return view('contact', compact('contacts'));
     }
 
-    public function contact(Request $request)
+    public function message(Request $request)
     {
         try {
             $request->validate([
@@ -42,7 +64,7 @@ class RouteController
                 'message' => 'required',
             ]);
 
-            Contact::create($request->all());
+            //Contact::create($request->all());
 
             return back()->with('success', 'Message envoyé avec success!');
         } catch (\Throwable $th) {

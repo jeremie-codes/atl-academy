@@ -23,7 +23,7 @@
 
 	<link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
 	<style>
 
 		.other-links {
@@ -88,19 +88,19 @@
 	<div class="px-0 pr-md-5 pl-md-5 container-header">
 		<div class="pt-3 pb-2 bg-light" style="opacity: .8;">
 			<div class="container">
-				<div class="row d-flex align-items-start align-items-center px-3 px-md-0">
-					<div class="col-md-4 d-flex mb-2 mb-md-0">
+				<div class="px-3 row d-flex align-items-start align-items-center px-md-0">
+					<div class="mb-2 col-md-4 d-flex mb-md-0">
 						<a class="navbar-brand d-flex align-items-center" href="/">
 							<img src="{{ asset('assets/images/icon-dark.png') }}" alt="logo" width="165">
 						</a>
 					</div>
 
 					<div class="col justify-content-between align-items-center other-links ">
-						<div class="col-md-6 d-flex topper mb-md-0 mb-2 align-items-center">
+						<div class="mb-2 col-md-6 d-flex topper mb-md-0 align-items-center">
 							<div class="icon d-flex justify-content-center align-items-center">
 								<span class="fa fa-map"></span>
 							</div>
-							<div class="pr-md-4 pl-md-3 pl-3 text">
+							<div class="pl-3 pr-md-4 pl-md-3 text">
 								<p class="con"><span>Phone</span> <span>+243 123 456 910</span></p>
 								<p class="con">Assistance clientèle 24h/24 et 7j/7</p>
 							</div>
@@ -108,7 +108,7 @@
 						<div class="col-md-6 d-flex topper mb-md-0 align-items-center">
 							<div class="icon d-flex justify-content-center align-items-center"><span class="fa fa-paper-plane"></span>
 							</div>
-							<div class="text pl-3 pl-md-3">
+							<div class="pl-3 text pl-md-3">
 								<p class="hr"><span>Notre emplacement</span></p>
 								<p class="con">112 av. SONGOLOLO, C/Kinshasa, Q/Djalo</p>
 							</div>
@@ -125,12 +125,12 @@
 				<span class="fa fa-bars"></span> Menu
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav mr-auto">
+				<ul class="mr-auto navbar-nav">
 					<li class="nav-item {{ Route::is('home') ? 'active': '' }}"><a href="/" class="nav-link">Accueil</a></li>
-					<li class="nav-item {{ Request::is('about') ? 'active': '' }}"><a href="/about" class="nav-link">A propos</a></li>
-					<li class="nav-item {{ Request::is('formations') ? 'active': '' }}"><a href="/formations" class="nav-link">Formations</a></li>
-					<li class="nav-item {{ Request::is('galeries') ? 'active': '' }}"><a href="/galeries" class="nav-link">Galeries</a></li>
-					<li class="nav-item {{ Request::is('contact') ? 'active': '' }}"><a href="/contact" class="nav-link">Contact</a></li>
+					<li class="nav-item {{ Route::is('about') ? 'active': '' }}"><a href="{{ route('about') }}" class="nav-link">A propos</a></li>
+					<li class="nav-item {{ Route::is('formations') ? 'active': '' }}"><a href="{{ route('formations') }}" class="nav-link">Formations</a></li>
+					<li class="nav-item {{ Route::is('galeries') ? 'active': '' }}"><a href="{{ route('galeries') }}" class="nav-link">Galeries</a></li>
+					<li class="nav-item {{ Route::is('contacts') ? 'active': '' }}"><a href="{{ route('contacts') }}" class="nav-link">Contact</a></li>
 				</ul>
 				<a href="#" class="btn-custom" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire maintenant</a>
 			</div>
@@ -141,7 +141,7 @@
     @yield('content')
 
 	<footer class="ftco-footer">
-		<div class="container mb-5 pb-4">
+		<div class="container pb-4 mb-5">
 			<div class="row">
 				<div class="col-md-4">
 					<div class="ftco-footer-widget">
@@ -151,7 +151,7 @@
 							spécialisé dans le transport, la logistique et la supply chain,
 							orienté vers la pratique et l’employabilité.
 						</p>
-						<ul class="ftco-footer-social list-unstyled mt-4">
+						<ul class="mt-4 ftco-footer-social list-unstyled">
 							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
 							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
 							<li><a href="#"><span class="fa fa-instagram"></span></a></li>
@@ -164,11 +164,11 @@
 						<h2 class="ftco-heading-2">Liens rapides</h2>
 						<div class="d-flex">
 							<ul class="list-unstyled">
-								<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Accueil</a></li>
-								<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>À propos</a></li>
-								<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Nos formations</a></li>
-								<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Galerie</a></li>
-								<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+								<li><a href="#"><span class="mr-2 fa fa-chevron-right"></span>Accueil</a></li>
+								<li><a href="#"><span class="mr-2 fa fa-chevron-right"></span>À propos</a></li>
+								<li><a href="#"><span class="mr-2 fa fa-chevron-right"></span>Nos formations</a></li>
+								<li><a href="#"><span class="mr-2 fa fa-chevron-right"></span>Galerie</a></li>
+								<li><a href="#"><span class="mr-2 fa fa-chevron-right"></span>Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -177,21 +177,21 @@
 				<div class="col-md-4">
 					<div class="ftco-footer-widget">
 						<h2 class="ftco-heading-2">Des questions ?</h2>
-						<div class="block-23 mb-3">
+						<div class="mb-3 block-23">
 							<ul>
 								<li>
-									<span class="fa fa-map-marker mr-3"></span>
+									<span class="mr-3 fa fa-map-marker"></span>
 									<span class="text">112, Av. SONGOLOLO (au croisement de l’avenue Kasa-vubu) Commune de Kinshasa Ville Kinshasa-RDC</span>
 								</li>
 								<li>
 									<a href="#">
-										<span class="fa fa-phone mr-3"></span>
+										<span class="mr-3 fa fa-phone"></span>
 										<span class="text">+243 820 643 533</span>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<span class="fa fa-paper-plane mr-3"></span>
+										<span class="mr-3 fa fa-paper-plane"></span>
 										<span class="text">contact@aficatl-group.com</span>
 									</a>
 								</li>
@@ -205,7 +205,7 @@
 		<div class="container-fluid bg-primary">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 aside-stretch py-3">
+					<div class="py-3 col-md-6 aside-stretch">
 						<p class="mb-0">
 							Copyright &copy;
 							<script>document.write(new Date().getFullYear());</script>
@@ -227,7 +227,7 @@
                     </button>
                 </div>
 
-                <div class="modal-body p-4 p-md-5">
+                <div class="p-4 modal-body p-md-5">
                     <form action="#" class="appointment-form ftco-animate">
                         <h3 class="mb-4 text-center">Inscription à une formation</h3>
 
@@ -273,8 +273,8 @@
                                 <textarea cols="30" rows="4" class="form-control" placeholder="Message (optionnel)"></textarea>
                             </div>
 
-                            <div class="form-group text-center">
-                                <input type="submit" value="S'inscrire maintenant" class="btn btn-primary py-3 px-4">
+                            <div class="text-center form-group">
+                                <input type="submit" value="S'inscrire maintenant" class="px-4 py-3 btn btn-primary">
                             </div>
                         </div>
                     </form>

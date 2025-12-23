@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-    Contacts
+    A propos
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
-            <div class="col-md-9 ftco-animate pb-5">
+            <div class="pb-5 col-md-9 ftco-animate">
                 <p class="breadcrumbs">
                     <span class="mr-2"><a href="index.html">Accueil <i class="fa fa-chevron-right"></i></a></span>
                     <span>A propos <i class="fa fa-chevron-right"></i></span></p>
@@ -23,21 +23,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url({{ asset('assets/images/img-5.webp') }});">
+                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ? $about->image : 'assets/images/img-5.webp') }});">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-crane"></span></div>
                 </div>
             </div>
-            <div class="col-md-6 py-5 pl-md-5">
-                <div class="row justify-content-center mb-4 pt-md-4">
+            <div class="py-5 col-md-6 pl-md-5">
+                <div class="mb-4 row justify-content-center pt-md-4">
                     <div class="col-md-12 heading-section ftco-animate">
                         <span class="subheading">Bienvenue !</span>
-                        <h2 class="mb-4">AFRICAS TRANSPORT LOGISTIQUE ACADEMIE</h2>
+                        <h2 class="mb-4">AFRICA TRANSPORT & LOGISTIC ACADEMY</h2>
                         <div class="d-flex about">
-                            <!--<div class="icon"><span class="flaticon-hammer"></span></div>-->
-                            <h3>Nous sommes dans ce secteur depuis plusieurs années et nous fournissons les meilleurs formations logistique. </h3>
+                            <h3>{{ $about->subtitle ?? null }} </h3>
                         </div>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
+                        {!! $about->description !!}
                     </div>
                 </div>
             </div>
@@ -49,8 +47,8 @@
     <div class="img image-overlay" style="background-image: url({{ asset('assets/images/about-3.jpg') }});"></div>
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-md-6 py-5 bg-secondary aside-stretch">
-                <div class="heading-section heading-section-white p-4 pl-md-0 py-md-5 pr-md-5">
+            <div class="py-5 col-md-6 bg-secondary aside-stretch">
+                <div class="p-4 heading-section heading-section-white pl-md-0 py-md-5 pr-md-5">
                     <span class="subheading">Africa Transport and Logistic Academy</span>
                     <h2 class="mb-4">Former les professionnels du transport et de la logistique de demain</h2>
                     <h4>Des formations pratiques, modernes et orientées vers l’employabilité.</h4>
@@ -92,11 +90,10 @@
     </div>
 </section>
 
-
 <section class="ftco-section bg-light">
     <div class="container">
-        <div class="row justify-content-center pb-3">
-            <div class="col-md-10 heading-section text-center ftco-animate">
+        <div class="pb-3 row justify-content-center">
+            <div class="text-center col-md-10 heading-section ftco-animate">
                 <span class="subheading">Academy</span>
                 <h2 class="mb-4">Nos partenaires</h2>
             </div>
@@ -105,6 +102,9 @@
         <div class="container">
             <div class="overflow-hidden ftco-animate " style="overflow-x: hidden; ">
                 <div class="d-flex partner-ticker">
+                    @forelse($parteners as $partener)
+                    <div class="logo-item"><img src="{{ asset($partener->image) }}" alt="Logo {{ $loop->index }}"></div>
+                    @empty
                     <!-- SERIE ORIGINALE -->
                     <div class="logo-item"><img src="{{ asset('assets/images/1.jpeg') }}" alt="Logo 1"></div>
                     <div class="logo-item"><img src="{{ asset('assets/images/2.jpeg') }}" alt="Logo 2"></div>
@@ -124,6 +124,7 @@
                     <div class="logo-item"><img src="{{ asset('assets/images/7.jpeg') }}" alt="Logo 5"></div>
                     <div class="logo-item"><img src="{{ asset('assets/images/8.jpeg') }}" alt="Logo 5"></div>
                     <div class="logo-item"><img src="{{ asset('assets/images/icon.png') }}" alt="Logo 6"></div>
+                    @endforelse
                 </div>
             </div>
         </div>

@@ -10,13 +10,4 @@ class Category extends Model
         'name',
     ];
 
-    public function services()
-    {
-        return $this->belongsToMany(Service::class);
-    }
-
-    public function agents()
-    {
-        return $this->belongsToMany(Agent::class);
-    }
 }

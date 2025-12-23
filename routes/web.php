@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RouteController::class, 'index'])->name('home');
 
-Route::get('/formations', [RouteController::class, 'formation'])->name('formations');
+Route::get('/formations/list', [RouteController::class, 'formations'])->name('formations');
+Route::get('/formation/{id}', [RouteController::class, 'formationShow'])->name('formation.show');
 Route::get('/about', [RouteController::class, 'about'])->name('about');
-Route::get('/galeries', [RouteController::class, 'galerie'])->name('galeries');
+Route::get('/galeries/list', [RouteController::class, 'galerie'])->name('galeries');
 Route::get('/contact', [RouteController::class, 'contacts'])->name('contacts');
-Route::post('/contact', [RouteController::class, 'contact'])->name('contact');
-
+Route::post('/contact', [RouteController::class, 'message'])->name('message');
