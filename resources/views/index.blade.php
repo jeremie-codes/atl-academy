@@ -61,7 +61,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ? $about->image : 'assets/images/img-5.webp') }});">
+                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ?? 'assets/images/img-5.webp') }});">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-crane"></span></div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
             @forelse($formations->take(6) as $formation)
             <div class="col-md-4">
                 <div class="project">
-                    <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ? $formation->image : 'assets/images/project-1.jpg') }});">
+                    <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ?? 'assets/images/project-1.jpg') }});">
                     </a>
                     <a href="{{ route('formation.show', $formation->id) }}">
                         <div class="text">
@@ -189,7 +189,7 @@
                     @foreach($testimonies as $testimony)
                     <div class="item">
                         <div class="py-4 pb-5 testimony-wrap d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url({{ asset($testimony->image ? $testimony->image : 'assets/images/person_1.jpg') }})">
+                            <div class="user-img" style="background-image: url({{ asset($testimony->image ?? 'assets/images/person_1.jpg') }})">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="fa fa-quote-left"></i>
                                 </span>
@@ -279,7 +279,7 @@
             <div class="overflow-hidden ftco-animate " style="overflow-x: hidden; ">
                 <div class="d-flex partner-ticker">
                     @forelse($parteners as $partener)
-                    <div class="logo-item"><img src="{{ asset($partener->image) }}" alt="Logo {{ $loop->index }}"></div>
+                    <div class="logo-item"><img src="{{ asset($partener->image ?? null) }}" alt="Logo {{ $loop->index }}"></div>
                     @empty
                     <!-- SERIE ORIGINALE -->
                     <div class="logo-item"><img src="{{ asset('assets/images/1.jpeg') }}" alt="Logo 1"></div>

@@ -25,7 +25,7 @@
             @forelse($galeries as $galery)
             <div class="col-md-4">
                 <div class="project">
-                    <a href="{{ asset($galery->image) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($galery->image) }});">
+                    <a href="{{ asset($galery->image ?? null) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($galery->image ?? null) }});">
                         <div class="mb-5 icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-plus"></span>
                         </div>

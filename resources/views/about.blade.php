@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ? $about->image : 'assets/images/img-5.webp') }});">
+                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ?? 'assets/images/img-5.webp') }});">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-crane"></span></div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="overflow-hidden ftco-animate " style="overflow-x: hidden; ">
                 <div class="d-flex partner-ticker">
                     @forelse($parteners as $partener)
-                    <div class="logo-item"><img src="{{ asset($partener->image) }}" alt="Logo {{ $loop->index }}"></div>
+                    <div class="logo-item"><img src="{{ asset($partener->image ?? null) }}" alt="Logo {{ $loop->index }}"></div>
                     @empty
                     <!-- SERIE ORIGINALE -->
                     <div class="logo-item"><img src="{{ asset('assets/images/1.jpeg') }}" alt="Logo 1"></div>

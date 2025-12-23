@@ -32,7 +32,7 @@
             @forelse($formations as $formation)
             <div class="col-md-4">
                 <div class="project">
-                    <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ? $formation->image : 'assets/images/project-1.jpg') }});">
+                    <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ?? 'assets/images/project-1.jpg') }});">
                     </a>
                     <a href="{{ route('formation.show', $formation->id) }}">
                         <div class="text">
