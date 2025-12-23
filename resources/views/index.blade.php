@@ -73,7 +73,7 @@
                         <div class="d-flex about">
                             <h3>{{ $about->subtitle ?? null }} </h3>
                         </div>
-                        {!! $about->description !!}
+                        {!! $about->description ?? null !!}
                     </div>
                 </div>
             </div>
@@ -146,8 +146,8 @@
                     </a>
                     <a href="{{ route('formation.show', $formation->id) }}">
                         <div class="text">
-                            <span class="subheading">Logistique</span>
-                            <h3>Gestion logistique et supply chain</h3>
+                            <span class="subheading">{{ $formation->category->name ?? null }}</span>
+                            <h3>{{ $formation->title ?? null }}</h3>
                             <p><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
                         </div>
                     </a>
@@ -195,9 +195,9 @@
                                 </span>
                             </div>
                             <div class="text">
-                                {!! $testimony->description !!}
-                                <p class="name">{{ $testimony->name }}</p>
-                                <span class="position">{{ $testimony->type }}</span>
+                                {!! $testimony->description ?? null !!}
+                                <p class="name">{{ $testimony->name ?? null }}</p>
+                                <span class="position">{{ $testimony->type ?? null }}</span>
                             </div>
                         </div>
                     </div>

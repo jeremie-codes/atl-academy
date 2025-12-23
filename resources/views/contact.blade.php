@@ -9,7 +9,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
-            <div class="col-md-9 ftco-animate pb-5">
+            <div class="pb-5 col-md-9 ftco-animate">
                 <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span>
                     <span>Contact <i class="fa fa-chevron-right"></i></span></p>
                 <h1 class="mb-3 bread">Contactez-nous</h1>
@@ -20,8 +20,8 @@
 
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
+        <div class="pb-3 mb-5 row justify-content-center">
+            <div class="text-center col-md-7 heading-section ftco-animate">
                 <span class="subheading">Contactez-nous</span>
                 <h2 class="mb-4">Contactez-nous pour plus de détails</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="submit" value="Envoyer Message" class="btn btn-primary py-3 px-5">
+                                <input type="submit" value="Envoyer Message" class="px-5 py-3 btn btn-primary">
                             </div>
                         </div>
                     </div>

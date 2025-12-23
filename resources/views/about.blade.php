@@ -35,7 +35,7 @@
                         <div class="d-flex about">
                             <h3>{{ $about->subtitle ?? null }} </h3>
                         </div>
-                        {!! $about->description !!}
+                        {!! $about->description ?? null !!}
                     </div>
                 </div>
             </div>

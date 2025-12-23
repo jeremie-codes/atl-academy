@@ -36,8 +36,8 @@
                     </a>
                     <a href="{{ route('formation.show', $formation->id) }}">
                         <div class="text">
-                            <span class="subheading">Logistique</span>
-                            <h3>Gestion logistique et supply chain</h3>
+                            <span class="subheading">{{ $formation->category->name ?? null }}</span>
+                            <h3>{{ $formation->title ?? null }}</h3>
                             <p><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
                         </div>
                     </a>

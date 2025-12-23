@@ -27,7 +27,7 @@
 
             <div class="mt-5 col-md-12 d-flex justify-content-center">
                 <div class="text-center col-md-12">
-                    {!! $formation->description !!}
+                    {!! $formation->description ?? null !!}
                 </div>
             </div>
 
