@@ -9,17 +9,13 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Filament\Filament;
-use Filament\Actions\Action;
 use Filament\Enums\ThemeMode;
 
 class AdminPanelProvider extends PanelProvider
@@ -42,7 +38,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                // AccountWidget::class,
+                AccountWidget::class,
                 // FilamentInfoWidget::class,
             ])
             ->middleware([
@@ -60,7 +56,6 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
-            //->breadcrumbs(false)
             ->brandLogo(asset('assets/images/icon-dark.png'))
             ->darkModeBrandLogo(asset('assets/images/icon-2.png'))
             ->brandLogoHeight('60px')
@@ -71,11 +66,7 @@ class AdminPanelProvider extends PanelProvider
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('edit')
-                ->url(route('posts.edit', ['post' => '1'])),
-            Action::make('delete')
-                ->requiresConfirmation()
-                ->action(fn () => 'delete'),
+            //
         ];
     }
 
