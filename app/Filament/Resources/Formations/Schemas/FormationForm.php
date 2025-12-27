@@ -34,8 +34,11 @@ class FormationForm
                             ->maxSize(4096)
                             ->required(),
                         RichEditor::make('description')
+                            ->label('Description de la formation (Max 1000 caractères)')
+                            ->maxLength(1000)
                             ->columnSpanFull()
                             ->required(),
+                        
                     ])
                 ]);
     }
