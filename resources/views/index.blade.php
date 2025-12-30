@@ -149,8 +149,8 @@
                             <span class="subheading">{{ $formation->category->name ?? null }}</span>
                             <h3>{{ $formation->title ?? null }}</h3>
                             <p style="color: #000">
-                                @if (strlen($formation->description) > 120)
-                                {!! substr($formation->description, 0, 120) . '...' ?? null !!}
+                                @if (strlen($formation->description) > 130)
+                                {!! substr($formation->description, 0, 130) . '...' ?? null !!}
                                 @else
                                 {!! $formation->description ?? null !!}
                                 @endif
