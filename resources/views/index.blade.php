@@ -149,10 +149,10 @@
                             <span class="subheading">{{ $formation->category->name ?? null }}</span>
                             <h3>{{ $formation->title ?? null }}</h3>
                             <p style="color: #000">
-                                @if (strlen($formation->description) > 100)
-                                {!! substr($formation->description, 0, 100) . '...' ?? null !!}
+                                @if (strlen($formation->description) > 150)
+                                {!! substr($formation->description, 0, 150) . '...' ?? null !!}
                                 @else
-                                {!! substr($formation->description, 0, 100) ?? null !!}
+                                {!! $formation->description ?? null !!}
                                 @endif
                             </p>
                             <p class="text-danger"><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
