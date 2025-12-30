@@ -19,7 +19,7 @@
 
 <section class="ftco-section">
     <div class="container">
-        <div class="col-md-12 d-flex align-items-center">
+        <div class="col-md-12 d-flex align-items-center justify-content-center">
             <img src="{{ asset($formation->image ?? null) }}" alt="image" class="img-fluid" style="max-height: 700px">
         </div>
 

@@ -144,11 +144,18 @@
                 <div class="project">
                     <a href="{{ route('formation.show', $formation->id) }}" class="img d-flex align-items-center" style="background-image: url({{ asset($formation->image ?? 'assets/images/project-1.jpg') }});">
                     </a>
-                    <a href="{{ route('formation.show', $formation->id) }}">
+                    <a href="{{ route('formation.show', $formation->id) }}" style="color: #000">
                         <div class="text">
                             <span class="subheading">{{ $formation->category->name ?? null }}</span>
                             <h3>{{ $formation->title ?? null }}</h3>
-                            <p><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
+                            <p style="color: #000">
+                                @if (strlen($formation->description) > 100)
+                                {!! substr($formation->description, 0, 100) . '...' ?? null !!}
+                                @else
+                                {!! substr($formation->description, 0, 100) ?? null !!}
+                                @endif
+                            </p>
+                            <p class="text-danger"><span class="mr-1 fa fa-clock-o"></span> Formation certifiante</p>
                         </div>
                     </a>
                 </div>

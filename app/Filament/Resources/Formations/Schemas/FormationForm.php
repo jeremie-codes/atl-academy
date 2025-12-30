@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Formations\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -34,11 +35,19 @@ class FormationForm
                             ->maxSize(4096)
                             ->required(),
                         RichEditor::make('description')
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
+                                ['h2', 'h3', 'alignJustify', 'alignStart', 'alignCenter', 'alignEnd'],
+                                ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                                ['table'],
+                                ['undo', 'redo'],
+                            ])
+
                             ->label('Description de la formation (Max 1000 caractères)')
                             ->maxLength(1000)
                             ->columnSpanFull()
                             ->required(),
-                        
+
                     ])
                 ]);
     }
