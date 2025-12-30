@@ -43,7 +43,7 @@ class FormationForm
                                 ['undo', 'redo'],
                             ])
 
-                            ->label('Description de la formation (Max 1000 caractères)')
+                            ->label('Description de la formation (Max 3000 caractères)')
                             ->maxLength(1000)
                             ->columnSpanFull()
                             ->required(),
