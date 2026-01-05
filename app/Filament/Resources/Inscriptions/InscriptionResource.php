@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class InscriptionResource extends Resource
 {
@@ -39,12 +40,17 @@ class InscriptionResource extends Resource
         ];
     }
 
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
+
     public static function getPages(): array
     {
         return [
             'index' => ListInscriptions::route('/'),
             'create' => CreateInscription::route('/create'),
-            'edit' => EditInscription::route('/{record}/edit'),
+            //'view' => EditInscription::route('/{record}/view'),
         ];
     }
 }

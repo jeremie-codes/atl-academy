@@ -80,9 +80,43 @@
 			animation-play-state: paused;
 		}
 
+        .bg-success {
+            background: #19c477;
+        }
+
 	</style>
 </head>
 <body>
+
+    @if(session('error'))
+        <div style="z-index: 999; color: white; position: fixed; top: 0; left: 0; right: 0"
+            class="alert alert-page-error bg-primary fade show"
+            role="alert"
+        >
+            <strong>Erreur !</strong> {{ session('error') }}
+        </div>
+
+        <script>
+            setTimeout(() => {
+                document.querySelector('.alert-page-error').style.display = 'none'
+            }, 8000);
+        </script>
+    @endif
+
+    @if(session('success'))
+        <div style="z-index: 999; color: white; position: fixed; top: 0; left: 0; right: 0"
+            class="alert alert-page-success bg-success fade show"
+            role="alert"
+        >
+            <strong>Success !</strong> {{ session('success') }}
+        </div>
+
+        <script>
+            setTimeout(() => {
+                document.querySelector('.alert-page-success').style.display = 'none'
+            }, 8000);
+        </script>
+    @endif
 
     {{-- Header Section --}}
 	<div class="px-0 pr-md-5 pl-md-5 container-header">
@@ -101,7 +135,7 @@
 								<span class="fa fa-map"></span>
 							</div>
 							<div class="pl-3 pr-md-4 pl-md-3 text">
-								<p class="con"><span>Phone</span> <span>+243 123 456 910</span></p>
+								<p class="con"><span>Phone</span> <span>{{ $contacts[0]->phone ?? "+243 000 000 000"}}</span></p>
 								<p class="con">Assistance clientèle 24h/24 et 7j/7</p>
 							</div>
 						</div>
@@ -110,7 +144,13 @@
 							</div>
 							<div class="pl-3 text pl-md-3">
 								<p class="hr"><span>Notre emplacement</span></p>
-								<p class="con">112 av. SONGOLOLO, C/Kinshasa, Q/Djalo</p>
+								<p class="con">
+                                    {{ strlen($contacts[0]->addresss ?? '') > 30
+                                        ? substr($contacts[0]->addresss, 0, 30)
+                                        : ($contacts[0]->addresss ?? '112, Av. SONGOLOLO, Kinshasa-RDC')
+                                    }}
+                                </p>
+
 							</div>
 						</div>
 					</div>
@@ -125,17 +165,18 @@
 				<span class="fa fa-bars"></span> Menu
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="mr-auto navbar-nav">
-					<li class="nav-item {{ Route::is('home') ? 'active': '' }}"><a href="/" class="nav-link">Accueil</a></li>
-					<li class="nav-item {{ Route::is('about') ? 'active': '' }}"><a href="{{ route('about') }}" class="nav-link">A propos</a></li>
-					<li class="nav-item {{ Route::is('formations') ? 'active': '' }}"><a href="{{ route('formations') }}" class="nav-link">Formations</a></li>
-					<li class="nav-item {{ Route::is('galeries') ? 'active': '' }}"><a href="{{ route('galeries') }}" class="nav-link">Galeries</a></li>
-					<li class="nav-item {{ Route::is('contacts') ? 'active': '' }}"><a href="{{ route('contacts') }}" class="nav-link">Contact</a></li>
+				<ul class="mr-auto navbar-nav" style="letter-spacing: -10px;">
+					<li class="nav-item {{ Route::is('home') ? 'active': '' }}"><a href="/" class="nav-link" style="letter-spacing: 0px;">Accueil</a></li>
+					<li class="nav-item {{ Route::is('about') ? 'active': '' }}"><a href="{{ route('about') }}" class="nav-link" style="letter-spacing: 0px;">A propos de nous</a></li>
+					<li class="nav-item {{ Route::is('formations') ? 'active': '' }}"><a href="{{ route('formations') }}" class="nav-link" style="letter-spacing: 0px;">Nos formations</a></li>
+					<li class="nav-item {{ Route::is('services') ? 'active': '' }}"><a href="{{ route('services') }}" class="nav-link" style="letter-spacing: 0px;">Nos services</a></li>
+					<li class="nav-item {{ Route::is('contacts') ? 'active': '' }}"><a href="{{ route('contacts') }}" class="nav-link" style="letter-spacing: 0px;">Contacts</a></li>
 				</ul>
 				<a href="#" class="btn-custom" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire maintenant</a>
 			</div>
 		</div>
 	</nav>
+
 	{{-- End Header Section --}}
 
     @yield('content')
@@ -181,18 +222,18 @@
 							<ul>
 								<li>
 									<span class="mr-3 fa fa-map-marker"></span>
-									<span class="text">112, Av. SONGOLOLO (au croisement de l’avenue Kasa-vubu) Commune de Kinshasa Ville Kinshasa-RDC</span>
+									<span class="text"> {{ $contacts[0]->address ?? '112, Av. SONGOLOLO (au croisement de l’avenue Kasa-vubu) Commune de Kinshasa Ville Kinshasa-RDC'}} </span>
 								</li>
 								<li>
 									<a href="#">
 										<span class="mr-3 fa fa-phone"></span>
-										<span class="text">+243 820 643 533</span>
+										<span class="text">{{ $contacts[0]->phone ?? "+243 000 000 000"}}</span>
 									</a>
 								</li>
 								<li>
 									<a href="#">
 										<span class="mr-3 fa fa-paper-plane"></span>
-										<span class="text">contact@aficatl-group.com</span>
+										<span class="text">{{ $contacts[0]->email ?? "contact@africatl-group.com"}}</span>
 									</a>
 								</li>
 							</ul>
@@ -228,24 +269,21 @@
                 </div>
 
                 <div class="p-4 modal-body p-md-5">
-                    <form action="#" class="appointment-form ftco-animate">
+                    <form action="{{ route('formations.inscription') }}" method="POST" class="appointment-form ftco-animate">
+                        @csrf
                         <h3 class="mb-4 text-center">Inscription à une formation</h3>
 
                         <div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nom">
+                                <input type="text" class="form-control" name="full_name" placeholder="Nom Complet" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Prénom">
+                                <input type="email" class="form-control" name="email" placeholder="Adresse email (optionnel)">
                             </div>
 
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Adresse email">
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Numéro de téléphone">
+                                <input type="text" class="form-control" name="phone" placeholder="Numéro de téléphone" required>
                             </div>
                         </div>
 
@@ -254,14 +292,11 @@
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select class="form-control">
-                                            <option value="">Choisir une formation</option>
-                                            <option>Transport & Logistique</option>
-                                            <option>Gestion de la Supply Chain</option>
-                                            <option>Transit & Douanes</option>
-                                            <option>Logistique portuaire & maritime</option>
-                                            <option>Management des opérations</option>
-                                            <option>Santé, Sécurité & Environnement (HSE)</option>
+                                        <select class="form-control" required name="formation_id">
+                                            <option value="" >Choisir une formation</option>
+                                            @foreach ($formationAll as $formation)
+                                                <option value="{{ $formation->id }}">{{ $formation->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -270,7 +305,7 @@
 
                         <div>
                             <div class="form-group">
-                                <textarea cols="30" rows="4" class="form-control" placeholder="Message (optionnel)"></textarea>
+                                <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Message (optionnel)"></textarea>
                             </div>
 
                             <div class="text-center form-group">

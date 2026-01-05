@@ -3,6 +3,7 @@
 namespace App\Filament\Clusters\Parametres\Resources\Contacts\Pages;
 
 use App\Filament\Clusters\Parametres\Resources\Contacts\ContactResource;
+use App\Models\Contact;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
@@ -12,8 +13,6 @@ class ListContacts extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            CreateAction::make()->label('Ajouter un contact'),
-        ];
+        return Contact::count() < 1 ? [CreateAction::make()->label('Ajouter un contact')->icon('heroicon-o-plus')] : [];
     }
 }

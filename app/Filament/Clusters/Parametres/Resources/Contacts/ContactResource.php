@@ -35,6 +35,11 @@ class ContactResource extends Resource
         return ContactsTable::configure($table);
     }
 
+      public static function canCreate(): bool
+    {
+        return Contact::count() < 1 ? true : false;
+    }
+
     public static function getRelations(): array
     {
         return [

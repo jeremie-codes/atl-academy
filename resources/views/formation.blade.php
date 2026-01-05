@@ -22,7 +22,7 @@
     <div class="container">
         <div class="pb-3 mb-5 row justify-content-center">
             <div class="text-center col-md-7 heading-section ftco-animate">
-                <span class="subheading">ATLA – Africa Transport and Logistic Academy</span>
+                <span class="subheading">ATL –  GROUP</span>
                 <h2 class="mb-4">Nos programmes de formation</h2>
             </div>
         </div>

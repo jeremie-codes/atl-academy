@@ -12,9 +12,9 @@
 				<div class="col-lg-6 ftco-animate">
 					<div class="mt-5">
 						<h1 class="mb-4">Une formation <br>Un métier <br>Un avenir</h1>
-						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+						{{-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p> --}}
 						<p>
-							<a href="#" class="btn btn-primary">Nos Formations</a>
+							<a href="{{ route('formations') }}" class="btn btn-primary">Nos Formations</a>
 							<a href="#" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire</a>
 						</p>
 					</div>
@@ -61,7 +61,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ?? 'assets/images/img-5.webp') }});">
+                <div class="about-wrap img w-100" style="background-image: url({{ asset( $about->image ?? 'assets/images/img-5.webp') }}); width: 500px; height: 500px; background-size: cover; background-repeat: no-repeat; background-position: center center;">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-crane"></span></div>
                 </div>
             </div>
@@ -73,7 +73,9 @@
                         <div class="d-flex about">
                             <h3>{{ $about->subtitle ?? null }} </h3>
                         </div>
-                        {!! $about->description ?? null !!}
+                        {!! (strlen($about->description) > 400 ? substr($about->description, 0, 400) . '...' : $about->description) ?? null !!}
+
+                        <a href="{{ route('about') }}" class="btn btn-secondary">EN SAVOIR PLUS</a>
                     </div>
                 </div>
             </div>
@@ -132,7 +134,7 @@
     <div class="container">
         <div class="pb-3 mb-5 row justify-content-center">
             <div class="text-center col-md-7 heading-section ftco-animate">
-                <span class="subheading">ATLA – Africa Transport and Logistic Academy</span>
+                <span class="subheading">ATL –  GROUP</span>
                 <h2 class="mb-4">Nos programmes de formation</h2>
             </div>
         </div>
@@ -193,7 +195,9 @@
             <div class="py-4 col-md-6 pl-md-5 py-md-5 aside-stretch-right">
                 <div class="carousel-testimony owl-carousel ftco-owl">
 
-                    @foreach($testimonies as $testimony)
+
+
+                    @forelse($testimonies as $testimony)
                     <div class="item">
                         <div class="py-4 pb-5 testimony-wrap d-flex justify-content-between align-items-end">
                             <div class="user-img" style="background-image: url({{ asset($testimony->image ?? 'assets/images/person_1.jpg') }})">
@@ -208,7 +212,8 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+
+                    @empty
 
                     <div class="item">
                         <div class="py-4 pb-5 testimony-wrap d-flex justify-content-between align-items-end">
@@ -266,6 +271,8 @@
                             </div>
                         </div>
                     </div>
+                    @endforelse
+
 
                 </div>
             </div>

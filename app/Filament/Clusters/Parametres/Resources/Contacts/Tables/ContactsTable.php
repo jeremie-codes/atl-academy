@@ -34,7 +34,7 @@ class ContactsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()->label('Modifier'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

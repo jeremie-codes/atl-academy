@@ -3,8 +3,10 @@
 namespace App\Filament\Resources\Inscriptions\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -41,7 +43,8 @@ class InscriptionsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                ViewAction::make()->label('Voir'),
+                DeleteAction::make()->label(''),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

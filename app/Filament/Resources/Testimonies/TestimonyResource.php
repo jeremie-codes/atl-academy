@@ -20,7 +20,7 @@ class TestimonyResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMegaphone;
 
-    protected static ?string $recordTitleAttribute = 'Témoignages';
+    protected static ?string $label = 'Témoignages';
 
     public static function form(Schema $schema): Schema
     {
