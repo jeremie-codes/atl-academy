@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+<style>
+    .btn-success {
+        background-color: #016a34;
+        border-color: #007338;
+    }
+</style>
 <section class="hero-wrap js-fullheight" style="background-image: url({{ asset('assets/images/banner.jpg') }});" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
 		<div class="container">
@@ -18,7 +24,7 @@
 							<a
                                 href="https://wa.me/243893553446/?text=Bonjour,%20Je%20voudrais%20obtenir%20des%20formations%0Ahttps://www.africatl-group.com"
                                 target="_blank"
-                                class="btn btn-primary"
+                                class="btn btn-success"
                                 >
                                 Passez à l'action
                             </a>
