@@ -15,7 +15,13 @@
 						{{-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p> --}}
 						<p>
 							{{-- <a href="{{ route('formations') }}" class="btn btn-primary">Nos Formations</a> --}}
-							<a href="https://wa.me/243893553446/?text=Bonjour, Je voudrais obtenir des formations \n https://www.africatl-group.com" target="_blank" class="btn btn-primary">Passez à l'action</a>
+							<a
+                                href="https://wa.me/243893553446/?text=Bonjour,%20Je%20voudrais%20obtenir%20des%20formations%0Ahttps://www.africatl-group.com"
+                                target="_blank"
+                                class="btn btn-primary"
+                                >
+                                Passez à l'action
+                            </a>
 							<a href="#" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire</a>
 						</p>
 					</div>
