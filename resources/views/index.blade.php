@@ -7,8 +7,13 @@
 @section('content')
 <style>
     .btn-success {
-        background-color: #016a34;
-        border-color: #007338;
+        background-color: #007338;
+        border-color: #07a553;
+        color: #fff
+    }
+
+    .btn-success:hover {
+        background-color: #087f41;
     }
 </style>
 <section class="hero-wrap js-fullheight" style="background-image: url({{ asset('assets/images/banner.jpg') }});" data-stellar-background-ratio="0.5">
