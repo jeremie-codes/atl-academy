@@ -14,7 +14,8 @@
 						<h1 class="mb-4">Une formation <br>Un métier <br>Un avenir</h1>
 						{{-- <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p> --}}
 						<p>
-							<a href="{{ route('formations') }}" class="btn btn-primary">Nos Formations</a>
+							{{-- <a href="{{ route('formations') }}" class="btn btn-primary">Nos Formations</a> --}}
+							<a href="https://wa.me/243893553446/?text=Je voudrais obtenir des formations" target="_blank" class="btn btn-primary">Passez à l'action</a>
 							<a href="#" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire</a>
 						</p>
 					</div>
@@ -26,33 +27,51 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2">
     <div class="container">
         <div class="row no-gutters d-flex">
-            <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-flex">
-                    <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-engineer-1"></span></div>
-                    <div class="pl-4 media-body">
-                        <h3 class="mb-3 heading">Excellence professionnelle</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+           @forelse($valeurs as $index => $valeur)
+                <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 {{ $index === 1 ? 'services-2' : 'services' }} d-flex">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="
+                                {{ $index === 0 ? 'flaticon-engineer-1' :
+                                ($index === 1 ? 'flaticon-worker-1' :
+                                'flaticon-engineer') }}">
+                            </span>
+                        </div>
+                        <div class="pl-4 media-body">
+                            <h3 class="mb-3 heading">{{ $valeur->title }}</h3>
+                            <p>{{ $valeur->description }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services services-2 d-flex">
-                    <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-worker-1"></span></div>
-                    <div class="pl-4 media-body">
-                        <h3 class="mb-3 heading">Innovation et pratique</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            @empty
+                <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-flex">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-engineer-1"></span></div>
+                        <div class="pl-4 media-body">
+                            <h3 class="mb-3 heading">Excellence professionnelle</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-flex">
-                    <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-engineer"></span></div>
-                    <div class="pl-4 media-body">
-                        <h3 class="mb-3 heading">Employabilité et impact</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services services-2 d-flex">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-worker-1"></span></div>
+                        <div class="pl-4 media-body">
+                            <h3 class="mb-3 heading">Innovation et pratique</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-flex">
+                        <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-engineer"></span></div>
+                        <div class="pl-4 media-body">
+                            <h3 class="mb-3 heading">Employabilité et impact</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>

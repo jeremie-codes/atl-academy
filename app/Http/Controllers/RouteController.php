@@ -9,6 +9,7 @@ use App\Models\Inscription;
 use App\Models\Partenaire;
 use App\Models\Service;
 use App\Models\Testimony;
+use App\Models\Valeur;
 use Illuminate\Http\Request;
 
 class RouteController
@@ -28,9 +29,10 @@ class RouteController
         $about = Apropos::first();
         $testimonies = Testimony::all();
         $parteners = Partenaire::all();
+        $valeurs = Valeur::all();
         $contacts = $this->contacts;
 
-        return view('index', compact('formations', 'about', 'testimonies', 'formationAll', 'parteners', 'contacts'));
+        return view('index', compact('formations', 'about', 'testimonies', 'formationAll', 'parteners', 'contacts', 'valeurs'));
     }
 
     public function about()
