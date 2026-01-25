@@ -29,7 +29,7 @@
         <div class="row no-gutters d-flex">
            @forelse($valeurs as $index => $valeur)
                 <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 {{ $index === 1 ? 'services-2' : 'services' }} d-flex">
+                    <div class="media block-6 services {{ $index === 1 ? 'services-2' : '' }} d-flex">
                         <div class="icon d-flex justify-content-center align-items-center">
                             <span class="
                                 {{ $index === 0 ? 'flaticon-engineer-1' :
@@ -38,7 +38,7 @@
                             </span>
                         </div>
                         <div class="pl-4 media-body">
-                            <h3 class="mb-3 heading">{{ $valeur->title }}</h3>
+                            <h3 class="mb-3 heading">{{ $valeur->titre }}</h3>
                             <p>{{ $valeur->description }}</p>
                         </div>
                     </div>
